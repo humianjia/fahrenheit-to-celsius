@@ -14,6 +14,9 @@
   --radius-md: 18px;
   --radius-sm: 14px;
   --content-width: 1240px;
+  --shell-gutter: 24px;
+  --shell-gutter-md: 18px;
+  --shell-gutter-sm: 14px;
 }
 
 * {
@@ -177,7 +180,7 @@ textarea {
 .page-shell {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 36px), var(--content-width));
+  width: min(calc(100% - var(--shell-gutter)), var(--content-width));
   margin: 0 auto;
   padding: 28px 0 72px;
 }
@@ -1396,10 +1399,6 @@ tbody tr:hover {
   text-transform: uppercase;
 }
 
-body[data-page="home"] .page-shell {
-  width: min(calc(100% - 28px), 1320px);
-}
-
 .home-main {
   display: grid;
   gap: 30px;
@@ -2155,7 +2154,7 @@ body[data-page="home"] .page-shell {
 
 @media (max-width: 820px) {
   .page-shell {
-    width: min(calc(100% - 20px), var(--content-width));
+    width: min(calc(100% - var(--shell-gutter-md)), var(--content-width));
     padding-top: 18px;
     padding-bottom: 48px;
   }
@@ -2235,10 +2234,6 @@ body[data-page="home"] .page-shell {
     overflow-x: auto;
   }
 
-  body[data-page="home"] .page-shell {
-    width: min(calc(100% - 18px), 1320px);
-  }
-
   .home-editorial,
   .console-shell,
   .formula-slab,
@@ -2300,6 +2295,10 @@ body[data-page="home"] .page-shell {
 }
 
 @media (max-width: 480px) {
+  .page-shell {
+    width: min(calc(100% - var(--shell-gutter-sm)), var(--content-width));
+  }
+
   .brand {
     gap: 10px;
   }
@@ -2369,7 +2368,6 @@ body[data-page="home"]::after {
 }
 
 body[data-page="home"] .page-shell {
-  width: min(calc(100% - 24px), 1340px);
   padding-top: 20px;
   padding-bottom: 48px;
 }
@@ -3018,10 +3016,6 @@ body[data-page="home"] .page-shell {
 }
 
 @media (max-width: 1180px) {
-  body[data-page="home"] .page-shell {
-    width: min(calc(100% - 18px), 1340px);
-  }
-
   .poster-toolline {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3054,7 +3048,6 @@ body[data-page="home"] .page-shell {
 
 @media (max-width: 720px) {
   body[data-page="home"] .page-shell {
-    width: min(calc(100% - 14px), 1340px);
     padding-top: 16px;
     padding-bottom: 36px;
   }
