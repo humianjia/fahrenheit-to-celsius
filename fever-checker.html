@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is 99.5 a Fever? | Body Temperature Fever Checker</title>
+    <meta
+      name="description"
+      content="Check whether 99.5 is a fever. Enter body temperature in Fahrenheit or Celsius and get an instant normal, low fever, fever, or high fever result."
+    />
+    <meta name="theme-color" content="#ef8d56" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="fever" data-temp-band="neutral">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link" href="index.html">Realtime</a>
+          <a class="tool-link active" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link" href="equal-temperature.html">-40</a>
+          <a class="tool-link" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero-split">
+          <article class="story-panel reveal" style="--delay: 0.08s">
+            <p class="eyebrow">P0 / health intent</p>
+            <h1 class="page-title">Is 99.5 a fever?</h1>
+            <p class="lead">
+              Enter a body temperature in Fahrenheit or Celsius and the checker will instantly tell you
+              whether it falls into a normal, low fever, fever, or high fever band.
+            </p>
+
+            <div class="hero-stats">
+              <article class="hero-stat">
+                <span>37.5</span>
+                <p>Low fever starts at 37.5&deg;C in this tool.</p>
+              </article>
+              <article class="hero-stat">
+                <span>38.0</span>
+                <p>Fever starts at 38&deg;C.</p>
+              </article>
+              <article class="hero-stat">
+                <span>39.0</span>
+                <p>High fever starts at 39&deg;C.</p>
+              </article>
+            </div>
+          </article>
+
+          <section class="tool-panel reveal" style="--delay: 0.14s">
+            <div class="control-grid">
+              <label class="control" for="fever-value">
+                <span class="field-label">Body temperature</span>
+                <input id="fever-value" class="text-input" type="text" inputmode="decimal" placeholder="99.5" />
+              </label>
+              <div class="control">
+                <span class="field-label">Unit</span>
+                <div id="fever-unit-switch" class="unit-switch unit-switch-duo" role="group" aria-label="Body temperature unit">
+                  <button class="unit-choice" type="button" data-unit="f" aria-pressed="true">
+                    <span class="unit-choice-name">Fahrenheit</span>
+                    <span class="unit-choice-symbol">&deg;F</span>
+                  </button>
+                  <button class="unit-choice" type="button" data-unit="c" aria-pressed="false">
+                    <span class="unit-choice-name">Celsius</span>
+                    <span class="unit-choice-symbol">&deg;C</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button id="fever-clear" class="ghost-button" type="button">Clear input</button>
+            </div>
+
+            <p id="fever-message" class="message-line" aria-live="polite"></p>
+
+            <article id="fever-board" class="status-board" data-level="normal">
+              <div class="status-heading">
+                <div>
+                  <p id="fever-chip" class="status-chip">Waiting</p>
+                  <h2 id="fever-label" class="status-label">Body temperature check</h2>
+                </div>
+              </div>
+              <div class="mini-metrics">
+                <div class="metric-card">
+                  <p class="field-label">Celsius</p>
+                  <div class="metric-value">
+                    <strong id="fever-c">--</strong>
+                    <span>&deg;C</span>
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <p class="field-label">Fahrenheit</p>
+                  <div class="metric-value">
+                    <strong id="fever-f">--</strong>
+                    <span>&deg;F</span>
+                  </div>
+                </div>
+              </div>
+              <p id="fever-note" class="status-note">
+                Enter a body temperature and the tool will classify it instantly.
+              </p>
+            </article>
+
+            <div class="quick-grid">
+              <button class="quick-button" type="button" data-fever-value="98.6" data-fever-unit="f">
+                <strong>98.6&deg;F</strong>
+                <span class="quick-meta">normal</span>
+              </button>
+              <button class="quick-button" type="button" data-fever-value="99.5" data-fever-unit="f">
+                <strong>99.5&deg;F</strong>
+                <span class="quick-meta">low fever</span>
+              </button>
+              <button class="quick-button" type="button" data-fever-value="100.4" data-fever-unit="f">
+                <strong>100.4&deg;F</strong>
+                <span class="quick-meta">fever</span>
+              </button>
+              <button class="quick-button" type="button" data-fever-value="102.2" data-fever-unit="f">
+                <strong>102.2&deg;F</strong>
+                <span class="quick-meta">high fever</span>
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <section class="section-block reveal" style="--delay: 0.18s">
+          <p class="section-kicker">Threshold logic</p>
+          <h2 class="section-title">The checker converts to Celsius before judging fever bands.</h2>
+          <div class="threshold-grid">
+            <article class="threshold-card">
+              <p class="threshold-label">Normal</p>
+              <strong>Below 37.5&deg;C</strong>
+              <p>Typical range by this page's rule set.</p>
+            </article>
+            <article class="threshold-card">
+              <p class="threshold-label">Low fever</p>
+              <strong>37.5&deg;C to 37.9&deg;C</strong>
+              <p>First warning band in the checker.</p>
+            </article>
+            <article class="threshold-card">
+              <p class="threshold-label">Fever</p>
+              <strong>38.0&deg;C to 38.9&deg;C</strong>
+              <p>Clear fever classification.</p>
+            </article>
+            <article class="threshold-card">
+              <p class="threshold-label">High fever</p>
+              <strong>39.0&deg;C and above</strong>
+              <p>High fever output in the tool.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

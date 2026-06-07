@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fahrenheit Celsius Comparison | Slider Tool</title>
+    <meta
+      name="description"
+      content="Compare Fahrenheit and Celsius on a live slider. Drag from 0F to 212F and watch the two scales update together."
+    />
+    <meta name="theme-color" content="#ef8d56" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="comparison" data-temp-band="neutral">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link" href="index.html">Realtime</a>
+          <a class="tool-link" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link active" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link" href="equal-temperature.html">-40</a>
+          <a class="tool-link" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="comparison-grid">
+          <article class="story-panel reveal" style="--delay: 0.08s">
+            <p class="eyebrow">P1 / visual comparison</p>
+            <h1 class="page-title">Fahrenheit and Celsius side by side</h1>
+            <p class="lead">
+              Drag the slider from 0&deg;F to 212&deg;F and see how the Fahrenheit and Celsius scales
+              move together in real time.
+            </p>
+          </article>
+
+          <section class="comparison-card reveal" style="--delay: 0.14s">
+            <p class="section-kicker">Live slider</p>
+            <h2>One drag, two scales</h2>
+
+            <div class="range-wrap">
+              <input id="compare-range" class="range-input" type="range" min="0" max="212" step="1" value="72" />
+
+              <div class="comparison-values">
+                <div class="value-row">
+                  <span class="field-label">Fahrenheit</span>
+                  <div class="source-value">
+                    <strong id="compare-f">72.0</strong>
+                    <span>&deg;F</span>
+                  </div>
+                </div>
+                <div class="value-row">
+                  <span class="field-label">Celsius</span>
+                  <div class="source-value">
+                    <strong id="compare-c">22.2</strong>
+                    <span>&deg;C</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comparison-rail">
+                <div class="comparison-fill"></div>
+              </div>
+              <div class="comparison-labels">
+                <span>0&deg;F</span>
+                <span>53&deg;F</span>
+                <span>106&deg;F</span>
+                <span>159&deg;F</span>
+                <span>212&deg;F</span>
+              </div>
+
+              <div class="comparison-pair">
+                <div class="pair-row">
+                  <strong id="compare-label">Comfort range</strong>
+                  <span class="entry-meta">Live interpretation</span>
+                </div>
+                <p id="compare-note" class="comparison-note">A mild temperature for rooms and everyday weather.</p>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

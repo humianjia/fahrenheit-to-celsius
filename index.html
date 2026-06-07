@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert Fahrenheit to Celsius in Real Time | Multi-Unit Temperature Converter</title>
+    <meta
+      name="description"
+      content="Convert Fahrenheit to Celsius in real time with a live multi-unit converter. Switch between Fahrenheit, Celsius, Kelvin, and Rankine instantly."
+    />
+    <meta
+      name="keywords"
+      content="convert fahrenheit to celsius in real time, fahrenheit to celsius, celsius to fahrenheit, kelvin converter, rankine converter"
+    />
+    <meta name="theme-color" content="#ef8d56" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you convert Fahrenheit to Celsius?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use Celsius = (Fahrenheit - 32) x 5/9."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is 98.6 Fahrenheit in Celsius?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "98.6 degrees Fahrenheit is 37 degrees Celsius."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What other units does this converter support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The converter supports Fahrenheit, Celsius, Kelvin, and Rankine."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-page="home" data-temp-band="neutral">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link active" href="index.html">Realtime</a>
+          <a class="tool-link" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link" href="equal-temperature.html">-40</a>
+          <a class="tool-link" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main class="poster-home">
+        <section class="poster-stage reveal" style="--delay: 0.08s">
+          <div class="poster-intro">
+            <div class="poster-copy">
+              <p class="eyebrow">Realtime conversion studio</p>
+              <h1 class="poster-title">Fahrenheit to Celsius</h1>
+              <p class="poster-subtitle">Enter one value. See all four scales instantly.</p>
+              <p class="poster-body">
+                Built for weather, body temperature, oven settings, and lab-style conversion without
+                scrolling for the answer.
+              </p>
+            </div>
+
+            <div class="poster-formulas" aria-hidden="true">
+              <span>&deg;C = (&deg;F - 32) &times; 5/9</span>
+              <span>K = &deg;C + 273.15</span>
+              <span>&deg;R = &deg;F + 459.67</span>
+            </div>
+
+            <div class="poster-searches">
+              <span>72 Fahrenheit to Celsius</span>
+              <span>98.6 Fahrenheit to Celsius</span>
+              <span>350 Fahrenheit to Celsius</span>
+            </div>
+          </div>
+
+          <section class="poster-console" aria-labelledby="realtime-title">
+            <div class="poster-console-head">
+              <div>
+                <p id="realtime-title" class="result-caption">Realtime multi-unit converter</p>
+                <p id="home-context-label" class="poster-status">Ready for conversion</p>
+              </div>
+              <div class="poster-badge">4 scales live</div>
+            </div>
+
+            <div class="poster-dashboard">
+              <div class="poster-meter-row">
+                <div class="poster-value-block">
+                  <span id="source-unit" class="poster-unit">&deg;F</span>
+                  <strong id="source-value">72.0</strong>
+                  <p id="converter-summary" class="poster-summary">
+                    72.0&deg;F equals 22.2&deg;C, 295.4K, and 531.7&deg;R.
+                  </p>
+                </div>
+
+                <div class="poster-thermo" aria-hidden="true">
+                  <div class="poster-thermo-track">
+                    <div class="poster-thermo-fill"></div>
+                    <div class="poster-thermo-cap"></div>
+                  </div>
+                  <div class="poster-thermo-scale">
+                    <span>-40</span>
+                    <span>32</span>
+                    <span>72</span>
+                    <span>100</span>
+                    <span>212</span>
+                    <span>350</span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="home-output-grid" class="poster-output-grid" aria-live="polite"></div>
+            </div>
+
+            <div class="poster-controls">
+              <div class="poster-input-area">
+                <label class="control" for="converter-value">
+                  <span class="field-label">Temperature value</span>
+                  <div class="poster-input-shell">
+                    <input id="converter-value" class="text-input poster-input" type="text" inputmode="decimal" placeholder="72" />
+                    <button id="converter-clear" class="poster-reset" type="button">Reset</button>
+                  </div>
+                </label>
+                <p class="micro-note">Decimals, negatives, and comma decimals are all supported.</p>
+              </div>
+
+              <div class="poster-switch-area">
+                <span class="field-label">Source unit</span>
+                <div id="converter-unit-switch" class="unit-switch poster-switch" role="group" aria-label="Source temperature unit">
+                  <button class="unit-choice" type="button" data-unit="f" aria-pressed="true">
+                    <span class="unit-choice-name">Fahrenheit</span>
+                    <span class="unit-choice-symbol">&deg;F</span>
+                  </button>
+                  <button class="unit-choice" type="button" data-unit="c" aria-pressed="false">
+                    <span class="unit-choice-name">Celsius</span>
+                    <span class="unit-choice-symbol">&deg;C</span>
+                  </button>
+                  <button class="unit-choice" type="button" data-unit="k" aria-pressed="false">
+                    <span class="unit-choice-name">Kelvin</span>
+                    <span class="unit-choice-symbol">K</span>
+                  </button>
+                  <button class="unit-choice" type="button" data-unit="r" aria-pressed="false">
+                    <span class="unit-choice-name">Rankine</span>
+                    <span class="unit-choice-symbol">&deg;R</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p id="converter-message" class="message-line poster-message" aria-live="polite"></p>
+
+            <div class="poster-bottomline">
+              <div class="poster-context">
+                <strong>Live interpretation</strong>
+                <p id="home-context-note">Switch between Fahrenheit, Celsius, Kelvin, and Rankine from one input.</p>
+              </div>
+
+              <div class="poster-presets">
+                <button class="quick-button poster-preset" type="button" data-quick-value="72" data-quick-unit="f">
+                  <strong>72&deg;F</strong>
+                  <span class="quick-meta">weather</span>
+                </button>
+                <button class="quick-button poster-preset" type="button" data-quick-value="98.6" data-quick-unit="f">
+                  <strong>98.6&deg;F</strong>
+                  <span class="quick-meta">body temp</span>
+                </button>
+                <button class="quick-button poster-preset" type="button" data-quick-value="350" data-quick-unit="f">
+                  <strong>350&deg;F</strong>
+                  <span class="quick-meta">oven</span>
+                </button>
+                <button class="quick-button poster-preset" type="button" data-quick-value="300" data-quick-unit="k">
+                  <strong>300K</strong>
+                  <span class="quick-meta">kelvin</span>
+                </button>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="poster-footer reveal" style="--delay: 0.14s">
+          <div class="poster-footer-note">
+            <p class="section-kicker">Core rule</p>
+            <h2 class="section-title">Fast answer first. Formula always visible.</h2>
+            <p class="body-copy">
+              The page still serves the classic Fahrenheit to Celsius intent, but now does it with a
+              cleaner, more authored visual language.
+            </p>
+          </div>
+
+          <div class="poster-toolline">
+            <a class="poster-link" href="fever-checker.html">
+              <span>Fever</span>
+              <p>Is 99.5 a fever?</p>
+            </a>
+            <a class="poster-link" href="oven-temperature-conversion.html">
+              <span>Oven</span>
+              <p>350F to Celsius</p>
+            </a>
+            <a class="poster-link" href="wind-chill-calculator.html">
+              <span>Wind Chill</span>
+              <p>Feels-like cold</p>
+            </a>
+            <a class="poster-link" href="heat-index-calculator.html">
+              <span>Heat Index</span>
+              <p>Feels-like heat</p>
+            </a>
+            <a class="poster-link" href="fahrenheit-celsius-comparison.html">
+              <span>Compare</span>
+              <p>Live scale slider</p>
+            </a>
+            <a class="poster-link" href="batch-temperature-converter.html">
+              <span>Batch</span>
+              <p>Multiple conversions</p>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

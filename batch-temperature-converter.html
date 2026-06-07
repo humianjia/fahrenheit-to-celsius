@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batch Temperature Converter | Convert Multiple Temperatures</title>
+    <meta
+      name="description"
+      content="Convert multiple temperatures line by line. Paste values like 72F, 100C, 300K, or 500R and get instant multi-unit outputs."
+    />
+    <meta name="theme-color" content="#ef8d56" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="batch" data-temp-band="neutral">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link" href="index.html">Realtime</a>
+          <a class="tool-link" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link" href="equal-temperature.html">-40</a>
+          <a class="tool-link active" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="batch-layout">
+          <article class="story-panel reveal" style="--delay: 0.08s">
+            <p class="eyebrow">P2 / bulk utility</p>
+            <h1 class="page-title">Convert multiple temperatures at once</h1>
+            <p class="lead">
+              Paste one temperature per line, such as <strong>72F</strong>, <strong>100C</strong>,
+              <strong>300K</strong>, or <strong>500R</strong>. Each line is parsed and converted across
+              all four supported scales.
+            </p>
+
+            <label class="control" for="batch-input">
+              <span class="field-label">One value per line</span>
+              <textarea id="batch-input" class="text-area" placeholder="72F&#10;100C&#10;300K&#10;520R"></textarea>
+            </label>
+
+            <div class="button-row">
+              <button id="batch-sample" class="ghost-button" type="button">Load sample lines</button>
+              <button id="batch-clear" class="ghost-button" type="button">Clear list</button>
+            </div>
+          </article>
+
+          <section class="result-list reveal" style="--delay: 0.14s">
+            <div class="batch-summary">
+              <div class="batch-stat">
+                <strong id="batch-count">0</strong>
+                <span>valid lines</span>
+              </div>
+              <div class="batch-stat">
+                <strong id="batch-errors">0</strong>
+                <span>parse issues</span>
+              </div>
+            </div>
+
+            <div id="batch-results" class="result-rows"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

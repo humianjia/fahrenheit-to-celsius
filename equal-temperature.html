@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>-40F = -40C | Equal Temperature Point</title>
+    <meta
+      name="description"
+      content="See the only temperature where Fahrenheit and Celsius are equal: -40 degrees."
+    />
+    <meta name="theme-color" content="#6aaeff" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="equal" data-temp-band="freeze">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link" href="index.html">Realtime</a>
+          <a class="tool-link" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link active" href="equal-temperature.html">-40</a>
+          <a class="tool-link" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main class="equal-stage">
+        <article class="equal-card reveal" style="--delay: 0.08s">
+          <p class="eyebrow">P2 / shareable fact</p>
+          <h2>-40 is the only equal point</h2>
+          <p class="lead">
+            Fahrenheit and Celsius cross only once. That crossover happens at minus forty.
+          </p>
+
+          <div class="equal-orbit">
+            <div class="equal-value">
+              <strong>-40</strong>
+              <span>&deg;F</span>
+            </div>
+            <div class="equal-divider">same</div>
+            <div class="equal-value">
+              <strong>-40</strong>
+              <span>&deg;C</span>
+            </div>
+          </div>
+
+          <p class="formula-inline">The two scales intersect at a single shared value.</p>
+        </article>
+
+        <section class="section-grid reveal" style="--delay: 0.14s">
+          <article class="support-card">
+            <p class="section-kicker">Why it happens</p>
+            <h3>The scales use different zero points and step sizes.</h3>
+            <p>
+              Celsius is anchored to water freezing and boiling, while Fahrenheit uses a different zero
+              point and smaller degree steps. The math lines up only once.
+            </p>
+          </article>
+          <article class="support-card">
+            <p class="section-kicker">Useful memory trick</p>
+            <h3>Remember -40 for both.</h3>
+            <p>
+              If you ever need one temperature where the systems match perfectly, this is the one to
+              keep in mind.
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

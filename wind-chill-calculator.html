@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wind Chill Calculator | Feels Like Temperature</title>
+    <meta
+      name="description"
+      content="Calculate wind chill from air temperature and wind speed. Get the feels-like temperature in Fahrenheit and Celsius instantly."
+    />
+    <meta name="theme-color" content="#4eb9d7" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="wind" data-temp-band="cool">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link" href="index.html">Realtime</a>
+          <a class="tool-link" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link active" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link" href="equal-temperature.html">-40</a>
+          <a class="tool-link" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero-split">
+          <article class="story-panel reveal" style="--delay: 0.08s">
+            <p class="eyebrow">P1 / weather calculator</p>
+            <h1 class="page-title">Wind chill calculator</h1>
+            <p class="lead">
+              Enter air temperature and wind speed to estimate how cold it feels on exposed skin. This
+              tool uses the NOAA wind chill formula and returns Fahrenheit and Celsius together.
+            </p>
+            <p class="formula-inline">35.74 + 0.6215T - 35.75V^0.16 + 0.4275TV^0.16</p>
+          </article>
+
+          <section class="tool-panel reveal" style="--delay: 0.14s">
+            <div class="control-grid">
+              <label class="control" for="wind-temp">
+                <span class="field-label">Air temperature (&deg;F)</span>
+                <input id="wind-temp" class="text-input" type="text" inputmode="decimal" placeholder="30" />
+              </label>
+              <label class="control" for="wind-speed">
+                <span class="field-label">Wind speed (mph)</span>
+                <input id="wind-speed" class="text-input" type="text" inputmode="decimal" placeholder="20" />
+              </label>
+            </div>
+
+            <div class="button-row">
+              <button id="wind-clear" class="ghost-button" type="button">Clear inputs</button>
+            </div>
+
+            <p id="wind-message" class="message-line" aria-live="polite"></p>
+
+            <article class="status-board">
+              <div class="status-heading">
+                <div>
+                  <p class="status-chip">Feels like result</p>
+                  <h2 id="wind-label" class="status-label">Wind chill output</h2>
+                </div>
+              </div>
+              <div class="mini-metrics">
+                <div class="metric-card">
+                  <p class="field-label">Fahrenheit</p>
+                  <div class="metric-value">
+                    <strong id="wind-result-f">--</strong>
+                    <span>&deg;F</span>
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <p class="field-label">Celsius</p>
+                  <div class="metric-value">
+                    <strong id="wind-result-c">--</strong>
+                    <span>&deg;C</span>
+                  </div>
+                </div>
+              </div>
+              <p id="wind-note" class="status-note">Add air temperature and wind speed to estimate how cold it feels.</p>
+            </article>
+
+            <div class="quick-grid">
+              <button class="quick-button" type="button" data-wind-temp="30" data-wind-speed="20">
+                <strong>30 / 20</strong>
+                <span class="quick-meta">classic</span>
+              </button>
+              <button class="quick-button" type="button" data-wind-temp="15" data-wind-speed="10">
+                <strong>15 / 10</strong>
+                <span class="quick-meta">cold</span>
+              </button>
+              <button class="quick-button" type="button" data-wind-temp="45" data-wind-speed="35">
+                <strong>45 / 35</strong>
+                <span class="quick-meta">windy</span>
+              </button>
+              <button class="quick-button" type="button" data-wind-temp="0" data-wind-speed="25">
+                <strong>0 / 25</strong>
+                <span class="quick-meta">extreme</span>
+              </button>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

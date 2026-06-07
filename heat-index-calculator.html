@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heat Index Calculator | Feels Like Heat</title>
+    <meta
+      name="description"
+      content="Calculate the heat index from air temperature and humidity. Get the feels-like heat in Fahrenheit and Celsius with an instant risk level."
+    />
+    <meta name="theme-color" content="#e86a42" />
+    <link rel="icon" type="image/svg+xml" href="brand-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="heat" data-temp-band="warm">
+    <div class="page-shell">
+      <header class="site-header reveal" style="--delay: 0.04s">
+        <a class="brand" href="index.html" aria-label="THERM home">
+          <span class="brand-mark">THERM</span>
+          <span class="brand-name">search tool suite</span>
+        </a>
+        <nav class="tool-nav" aria-label="Temperature tool navigation">
+          <a class="tool-link" href="index.html">Realtime</a>
+          <a class="tool-link" href="fever-checker.html">Fever</a>
+          <a class="tool-link" href="oven-temperature-conversion.html">Oven</a>
+          <a class="tool-link" href="wind-chill-calculator.html">Wind Chill</a>
+          <a class="tool-link active" href="heat-index-calculator.html">Heat Index</a>
+          <a class="tool-link" href="fahrenheit-celsius-comparison.html">Compare</a>
+          <a class="tool-link" href="equal-temperature.html">-40</a>
+          <a class="tool-link" href="batch-temperature-converter.html">Batch</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero-split">
+          <article class="story-panel reveal" style="--delay: 0.08s">
+            <p class="eyebrow">P1 / humidity + heat</p>
+            <h1 class="page-title">Heat index calculator</h1>
+            <p class="lead">
+              Enter air temperature and relative humidity to estimate how hot it feels. This page uses
+              the Rothfusz regression and returns a risk label together with Fahrenheit and Celsius.
+            </p>
+          </article>
+
+          <section class="tool-panel reveal" style="--delay: 0.14s">
+            <div class="control-grid">
+              <label class="control" for="heat-temp">
+                <span class="field-label">Air temperature (&deg;F)</span>
+                <input id="heat-temp" class="text-input" type="text" inputmode="decimal" placeholder="95" />
+              </label>
+              <label class="control" for="heat-humidity">
+                <span class="field-label">Relative humidity (%)</span>
+                <input id="heat-humidity" class="text-input" type="text" inputmode="decimal" placeholder="60" />
+              </label>
+            </div>
+
+            <div class="button-row">
+              <button id="heat-clear" class="ghost-button" type="button">Clear inputs</button>
+            </div>
+
+            <p id="heat-message" class="message-line" aria-live="polite"></p>
+
+            <article class="status-board">
+              <div class="status-heading">
+                <div>
+                  <p class="status-chip">Feels like result</p>
+                  <h2 id="heat-risk" class="status-label">Waiting</h2>
+                </div>
+              </div>
+              <div class="mini-metrics">
+                <div class="metric-card">
+                  <p class="field-label">Heat index</p>
+                  <div class="metric-value">
+                    <strong id="heat-result-f">--</strong>
+                    <span>&deg;F</span>
+                  </div>
+                </div>
+                <div class="metric-card">
+                  <p class="field-label">Celsius</p>
+                  <div class="metric-value">
+                    <strong id="heat-result-c">--</strong>
+                    <span>&deg;C</span>
+                  </div>
+                </div>
+              </div>
+              <p id="heat-note" class="status-note">Add air temperature and humidity to estimate how hot it feels.</p>
+            </article>
+
+            <div class="quick-grid">
+              <button class="quick-button" type="button" data-heat-temp="88" data-heat-humidity="55">
+                <strong>88 / 55%</strong>
+                <span class="quick-meta">caution</span>
+              </button>
+              <button class="quick-button" type="button" data-heat-temp="95" data-heat-humidity="60">
+                <strong>95 / 60%</strong>
+                <span class="quick-meta">high</span>
+              </button>
+              <button class="quick-button" type="button" data-heat-temp="100" data-heat-humidity="70">
+                <strong>100 / 70%</strong>
+                <span class="quick-meta">danger</span>
+              </button>
+              <button class="quick-button" type="button" data-heat-temp="105" data-heat-humidity="80">
+                <strong>105 / 80%</strong>
+                <span class="quick-meta">extreme</span>
+              </button>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
